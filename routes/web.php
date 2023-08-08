@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', fn() => view('welcome'))->name('home');
+Route::resource('tasks', \App\Http\Controllers\TaskController::class);
+Route::get('statistics', [\App\Http\Controllers\StatisticController::class, 'index'])->name('statistics.index');
