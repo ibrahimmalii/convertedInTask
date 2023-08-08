@@ -4,6 +4,5 @@
 @section('title', 'Home')
 
 @section('content')
-    <h1>Welcome to our website!</h1>
-    <p>This is the homepage content.</p>
+    <h1 class="text-center mt-3 text-success">Welcome to our platform!</h1>
 @endsection
