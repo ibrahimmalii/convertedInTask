@@ -62,8 +62,8 @@
                 <span class="text-danger bold">{{ $message }}</span>
             @enderror
         </div>
-        <div class="mt-4">
-            <button type="submit" class="btn btn-primary">Submit task</button>
+        <div class="mt-4 text-center">
+            <button type="submit" class="btn btn-primary w-50">Submit task</button>
         </div>
     </form>
 @endsection
