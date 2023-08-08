@@ -37,6 +37,7 @@
     </nav>
 
     <main class="p-5">
+        <h1 class="mb-4">@yield('title')</h1>
         @yield('content')
     </main>
 </div>

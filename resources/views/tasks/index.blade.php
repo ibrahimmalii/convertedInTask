@@ -4,11 +4,8 @@
 @section('title', 'Tasks')
 
 @section('content')
-    <div class="d-flex">
-        <h1>TASKS</h1>
-        <div class="form-group my-2 ms-auto">
-            <a href="{{route('tasks.create')}}" class="btn btn-primary">Create New Task</a>
-        </div>
+    <div class="form-group my-2 ms-auto">
+        <a href="{{route('tasks.create')}}" class="btn btn-primary">Create New Task</a>
     </div>
     <table class="table table-hover mt-4">
         <thead>

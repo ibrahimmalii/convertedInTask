@@ -4,9 +4,6 @@
 @section('title', 'Statistics')
 
 @section('content')
-    <div class="d-flex">
-        <h1>Statistics</h1>
-    </div>
     <table class="table table-hover mt-4">
         <thead>
         <tr>
