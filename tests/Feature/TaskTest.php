@@ -27,7 +27,7 @@ class TaskTest extends TestCase
         $this->admin = User::factory()->create([
             'role_id' => RoleEnums::Admin->value,
         ]);
-        DB::statement('ALTER TABLE roles AUTO_INCREMENT = 1;');
+//        DB::statement('ALTER TABLE roles AUTO_INCREMENT = 1;');
     }
     public function test_logged_in_admin_can_see_tasks_list_page(): void
     {
