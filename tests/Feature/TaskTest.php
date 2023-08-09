@@ -9,6 +9,7 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 
@@ -18,20 +19,15 @@ class TaskTest extends TestCase
 
     private ?User $admin;
 
-//    public static function setUpBeforeClass(): void
-//    {
-//        parent::setUpBeforeClass();
-//
-//        Role::factory()->count(2)->create();
-//    }
-
     public function setUp(): void
     {
         parent::setUp();
 
+        Role::factory()->count(2)->create();
         $this->admin = User::factory()->create([
             'role_id' => RoleEnums::Admin->value,
         ]);
+        DB::statement('ALTER TABLE roles AUTO_INCREMENT = 1;');
     }
     public function test_logged_in_admin_can_see_tasks_list_page(): void
     {
