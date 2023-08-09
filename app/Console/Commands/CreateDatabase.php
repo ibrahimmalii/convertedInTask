@@ -38,6 +38,8 @@ class CreateDatabase extends Command
             return;
         }
 
+        config(['database.connections.' . config('database.default') . '.database' => null]);
+
         $query = "CREATE DATABASE IF NOT EXISTS $databaseName CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;";
         DB::statement($query);
 
