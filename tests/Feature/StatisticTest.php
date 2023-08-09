@@ -22,7 +22,7 @@ class StatisticTest extends TestCase
         $this->admin = User::factory()->create([
             'role_id' => RoleEnums::Admin->value,
         ]);
-//        DB::statement('ALTER TABLE roles AUTO_INCREMENT = 1;');
+        DB::statement('ALTER TABLE roles AUTO_INCREMENT = 1;');
     }
     public function test_update_statistics_job_when_create_new_task(): void
     {
