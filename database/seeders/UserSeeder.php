@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Http\Enums\RoleEnums;
 use App\Models\User;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Seeder;
@@ -31,7 +32,7 @@ class UserSeeder extends Seeder
         User::insert($values);
 
         User::factory()->count(100)->create([
-            'role_id' => 1,
+            'role_id' => RoleEnums::Admin->value,
         ]);
     }
 }
