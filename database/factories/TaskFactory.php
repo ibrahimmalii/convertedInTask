@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Http\Enums\RoleEnums;
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,8 +22,12 @@ class TaskFactory extends Factory
         return [
             'title' => fake()->sentence(),
             'description' => fake()->paragraph(),
-            'assigned_to_id' => fake()->numberBetween(1, 1000),
-            'assigned_by_id' => fake()->numberBetween(1000, 1100),
+            'assigned_to_id' => function () {
+                return User::factory()->create(['role_id' => RoleEnums::User->value])->id;
+            },
+            'assigned_by_id' => function () {
+                return User::factory()->create(['role_id' => RoleEnums::Admin->value])->id;
+            }
         ];
     }
 }
