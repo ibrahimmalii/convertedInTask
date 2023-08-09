@@ -24,7 +24,7 @@ class StatisticTest extends TestCase
         ]);
         DB::statement('ALTER TABLE roles AUTO_INCREMENT = 1;');
     }
-    public function test_update_statistics_job_when_create_new_task(): void
+    public function test_show_statistics_to_admin(): void
     {
         $this->actingAs($this->admin);
         $response = $this->get('/statistics');
