@@ -34,9 +34,8 @@ class StartApp extends Command
         $this->call('config:cache');
         $this->call('route:clear');
         $this->call('config:clear');
-        $this->call('cache:clear');
 
-        DB::connection(config('database.default'));
+//        DB::connection(config('database.default'));
 
         if (!Schema::hasTable('migrations')) {
             $this->call('migrate');
