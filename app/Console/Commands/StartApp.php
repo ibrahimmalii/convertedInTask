@@ -38,8 +38,6 @@ class StartApp extends Command
 
         DB::connection(config('database.default'));
 
-        $this->call('db:create');
-
         if (!Schema::hasTable('migrations')) {
             $this->call('migrate');
             $this->call('db:seed');
