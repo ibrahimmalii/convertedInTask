@@ -9,6 +9,7 @@
             <label for="title">Title</label>
             <input
                 type="text"
+                value="{{old('title')}}"
                 class="form-control"
                 id="title"
                 name="title"
@@ -26,7 +27,7 @@
                 name="description"
                 placeholder="Enter description"
                 rows="10"
-            ></textarea>
+            >{{old('description')}}</textarea>
             @error('description')
                 <span class="text-danger bold">{{ $message }}</span>
             @enderror
