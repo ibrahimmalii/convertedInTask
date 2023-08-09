@@ -28,13 +28,13 @@ class UpdateOrCreateUserStatistics implements ShouldQueue
      */
     public function handle(): void
     {
-        Statistic::updateOrCreate(
-            [
-                'user_id' => $this->id
-            ],
-            [
-                'total_tasks' => DB::raw('total_tasks + 1')
-            ]
-        );
+//        Statistic::updateOrCreate(
+//            [
+//                'user_id' => $this->id
+//            ],
+//            [
+//                'total_tasks' => DB::raw('total_tasks + 1')
+//            ]
+//        );
     }
 }
