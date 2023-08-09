@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Enums\RoleEnums;
 use App\Http\Requests\TaskRequest;
 use App\Jobs\UpdateOrCreateUserStatistics;
-use App\Models\Statistic;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -23,11 +23,11 @@ class TaskController extends Controller
     public function create(): View
     {
         $admins = cache()->remember('admins', 60 * 60, function () {
-            return User::where('role_id', 1)->get();
+            return User::where('role_id', RoleEnums::Admin->value)->get();
         });
 
         $users = cache()->remember('users', 60 * 60, function () {
-            return User::where('role_id', 2)->get();
+            return User::where('role_id', RoleEnums::User->value)->get();
         });
         return view('tasks.create', compact('admins', 'users'));
     }

@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', fn() => view('welcome'))->name('home');
-Route::resource('tasks', \App\Http\Controllers\TaskController::class);
-Route::get('statistics', [\App\Http\Controllers\StatisticController::class, 'index'])->name('statistics.index');
+Route::get('/', fn() => view('welcome'))
+    ->name('home');
+Route::resource('tasks', \App\Http\Controllers\TaskController::class)
+    ->only(['index', 'create', 'store']);
+Route::get('statistics', [\App\Http\Controllers\StatisticController::class, 'index'])
+    ->name('statistics.index');
