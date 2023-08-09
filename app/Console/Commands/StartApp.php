@@ -30,9 +30,11 @@ class StartApp extends Command
         $this->info('Starting the application...');
 
         exec('docker-compose up -d');
-        $this->call('optimize:clear');
         $this->call('key:generate');
         $this->call('config:cache');
+        $this->call('route:clear');
+        $this->call('config:clear');
+        $this->call('cache:clear');
 
         DB::connection(config('database.default'));
 
