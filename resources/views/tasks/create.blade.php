@@ -3,13 +3,13 @@
 @section('title', 'Create Task')
 
 @section('content')
-    <h1>Create task</h1>
     <form method="POST" action="{{route('tasks.store')}}">
         @csrf
         <div class="form-group">
             <label for="title">Title</label>
             <input
                 type="text"
+                value="{{old('title')}}"
                 class="form-control"
                 id="title"
                 name="title"
@@ -27,7 +27,7 @@
                 name="description"
                 placeholder="Enter description"
                 rows="10"
-            ></textarea>
+            >{{old('description')}}</textarea>
             @error('description')
                 <span class="text-danger bold">{{ $message }}</span>
             @enderror
@@ -62,8 +62,8 @@
                 <span class="text-danger bold">{{ $message }}</span>
             @enderror
         </div>
-        <div class="mt-4">
-            <button type="submit" class="btn btn-primary">Submit task</button>
+        <div class="mt-4 text-center">
+            <button type="submit" class="btn btn-primary w-50">Submit task</button>
         </div>
     </form>
 @endsection
